@@ -1,6 +1,7 @@
 package mascotas;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 public abstract class Mascota {
@@ -17,9 +18,9 @@ public abstract class Mascota {
 	}
 
 	public Mascota(String nombre, String especie, LocalDate fechaNacimiento) {
-		this.nombre = nombre;
-		this.especie = especie;
-		this.fechaNacimiento = fechaNacimiento;
+		setNombre(nombre);
+		setEspecie(especie);
+		setFechaNacimiento(fechaNacimiento);
 	}
 
 	/**
@@ -60,11 +61,14 @@ public abstract class Mascota {
 	
 	
 	public int calcularEdad() {
+		LocalDate hoy = LocalDate.now();
+		LocalDate nacimientoAnimal = this.getFechaNacimiento();
 		
-		int yearNacimiento = getFechaNacimiento().getYear();
-		int hoy = LocalDate.now().getYear();
+		Period periodo = Period.between(nacimientoAnimal, hoy);
 		
-		return  yearNacimiento - hoy / 12;
+		int years = (periodo.getYears() * 12) + periodo.getMonths();
+		
+		return years;
 		
 	}
 
