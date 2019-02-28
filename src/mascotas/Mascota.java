@@ -57,5 +57,15 @@ public abstract class Mascota {
 	public void setRevisiones(ArrayList<Revision> revisiones) {
 		this.revisiones = revisiones;
 	}
+	
+	
+	public int calcularEdad() {
+		
+		int yearNacimiento = getFechaNacimiento().getYear();
+		int hoy = LocalDate.now().getYear();
+		
+		return  yearNacimiento - hoy / 12;
+		
+	}
 
 }
