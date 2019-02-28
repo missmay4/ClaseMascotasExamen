@@ -8,21 +8,32 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import mascotas.Ave;
-import mascotas.Mamifero;
 import mascotas.Mascota;
-import mascotas.Reptil;
+
 
 public class MascotaTest {
 	Mascota nestor, arami, henri;
 
 	@Before
 	public void setUp() throws Exception {
+		nestor = new Mascota("Nestor", "Hamster", LocalDate.of(1998, 9, 02));
+		
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	@Test 
+	public void testConstructor() {
+		assertTrue(nestor instanceof Mascota);
+		
+	}
+	@Test
+	public void testCalcularEdad() {
+		assertTrue(nestor.calcularEdad() == 245);
+	}
+	
 
 	@Test
 	//sólo probamos el método compareTu

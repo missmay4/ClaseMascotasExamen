@@ -66,6 +66,8 @@ public abstract class Mascota {
 		
 		Period periodo = Period.between(nacimientoAnimal, hoy);
 		
+		long l1= periodo.toTotalMonths();
+		
 		int years = (periodo.getYears() * 12) + periodo.getMonths();
 		
 		return years;
